@@ -7,10 +7,6 @@ window.onload = () =>{
     input.focus()
 }
 
-input.addEventListener("change", () => {
-    localStorage.setItem("deger", input.value);
-});
-
 button.addEventListener("click", () => {
     let girdi = input.value.toString()
     let parts = girdi.split("-");
@@ -27,8 +23,15 @@ button.addEventListener("click", () => {
     } else if (part3.length !== 4 || part3 < "0001" || part3 > "9999"){
         sonuc.textContent = "Yanlış değer! üçüncü bölüm 4 haneli olmalı ve '0001-9999' arası değer içermelidir"
     } else{
-        sonuc.textContent = `Girilen değer ${(localStorage.getItem("deger"))} geçerlidir`
+        sonuc.textContent = `Girilen değer geçerlidir`
     }
+
+    setTimeout(() => {
+        input.focus()
+        input.value = "";
+        sonuc.textContent = "";
+        sonuc.visibility = "hidden";
+    }, 3000);
 })
 
 input.addEventListener("keydown", (e) => {
