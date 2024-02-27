@@ -14,16 +14,20 @@ button.addEventListener("click", () => {
     let part2 = parts[1]
     let part3 = parts[2]
 
-    if(girdi.length !== 11 || parts.length !== 3){
-        sonuc.textContent = "Yanlış değer! 'xxx-xx-xxxx' olacak şekilde 11 haneli olarak tekrar deneyiniz"
-    } else if(part1.length !== 3 || (part1[0] === part1[1] && part1[0] === part1[2])){
-        sonuc.textContent = "Yanlış değer! ilk bölüm 3 haneli olmalı ve tekrar eden sayılar içermemelidir"
-    } else if (part2.length !== 2 || part2 < "01" || part2 > "99"){
-        sonuc.textContent = "Yanlış değer! ikinci bölüm 2 haneli olmalı ve '01-99' arası değer içermelidir"
-    } else if (part3.length !== 4 || part3 < "0001" || part3 > "9999"){
-        sonuc.textContent = "Yanlış değer! üçüncü bölüm 4 haneli olmalı ve '0001-9999' arası değer içermelidir"
+    if(girdi.length !== 11 ||
+        parts.length !== 3 ||
+        (isNaN(part1)) ||
+        part1.length !== 3 ||
+        part1 == 0 || 
+        part1 == 666 ||
+        part1 >= 900 ||
+        part2.length !== 2 ||
+        (isNaN(part2)) ||
+        part3.length !== 4 ||
+        (isNaN(part3))){
+        sonuc.textContent = "Yanlış değer! 'xxx-xx-xxxx' olacak şekilde 9 adet rakam ve 2 adet '-' olarak tekrar deneyiniz"
     } else{
-        sonuc.textContent = `Girilen değer geçerlidir`
+        sonuc.textContent = `Girilen değer ${input.value} geçerlidir`
     }
 
     setTimeout(() => {
@@ -39,4 +43,3 @@ input.addEventListener("keydown", (e) => {
         button.click()
     }
 })
-
