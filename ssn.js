@@ -27,7 +27,7 @@ button.addEventListener("click", () => {
         (isNaN(part3))){
         sonuc.textContent = "Yanlış değer! 'xxx-xx-xxxx' olacak şekilde 9 adet rakam ve 2 adet '-' olarak tekrar deneyiniz"
     } else{
-        sonuc.textContent = `Girilen değer ${input.value} geçerlidir`
+        sonuc.textContent = `Girilen değer (${input.value}) geçerlidir`
     }
 
     setTimeout(() => {
